@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pageone.css">
+    <title>The Polo Club Dashboard</title>
+</head>
+
+<script src="pageone.js" defer></script>
+
+<body>
+    <main class="dashboardd">
+        <header class="topbar">
+            <div>
+                <h1 class="logo">The Polo Club</h1>
+                <p class="welcometxt">Welcome, Member</p>
+            </div>
+        </header>
+
+        <section class="herocard">
+            <h2>Membership Dashboard</h2>
+            <p>Your membership is approved. For any queries or assistance call the number given at the back of your membership card</p>
+        </section>
+
+        <section class="gridlayout">
+            <div class="card">
+                <h3>Quick Status Check</h3>
+                <div class="statuslist">
+                    <p><strong>Registration </strong> <span id="registrationStatus">Submitted</span></p>
+                    <p><strong>Membership Review </strong><span id="reviewStatus">Pending</span></p>
+                    <p><strong>Card Number </strong><span id="cardNumber">Not Assigned</span></p>
+                </div>
+                <button id ="checkStatusBtn">Review Status</button>
+            </div>
+            
+            <div class="card">
+                <h3>Complete the Following</h3>
+                <ul class="tasklist" id="taskList">
+                    <li data-done="false">Upload passport photo</li>
+                    <li data-done="false">Pay membership fee</li>
+                    <li data-done="false">Confirm emergency contact</li>
+                </ul> 
+                <button id="completeTaskBtn">Done</button>
+            </div>
+
+            <div class="card">
+                <h3>Key Member Card Progress</h3>
+                <p>Complete the required steps to qualify for your membership card</p>
+                <div class="progressbar">
+                    <div class="progressfill" id="progressFill"></div>
+                </div>
+                <p id="progressText">0% complete</p>
+            </div>
+
+        </section>
+
+        <section class="officialshop">
+            <div class="clubshop">
+                <h3>Official Club Shop</h3>
+                <p class="shopintro"><strong>Get your official Polo Club gear and branded wear here</strong></p>
+
+                <div class="shopitems">
+                    <div class="shopitem">
+                        <h4>Polo club cap</h4>
+                        <p class="price">KSH 1,400</p>
+                        <button class="buybutton">BUY NOW</button>
+                    </div>
+
+                    <div class="shopitem">
+                        <h4>Polo club official shirt</h4>
+                        <p class="price">KSH 2,500</p>
+                        <button class="buybutton">BUY NOW</button>
+                    </div>
+
+                    <div class="shopitem">
+                        <h4>Polo club official gloves</h4>
+                        <p class="price">KSH 1,700</p>
+                        <button class="buybutton">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <button class="logoutbutton" id="logoutBtn">Log Out</button>
+        </footer>
+
+    </main> 
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyD6eHy5xjaY-3W2ZDLEFLYxOsFCdAWLne4",
+    authDomain: "my-login-site-95d97.firebaseapp.com",
+    projectId: "my-login-site-95d97",
+    storageBucket: "my-login-site-95d97.firebasestorage.app",
+    messagingSenderId: "787242250818",
+    appId: "1:787242250818:web:fa4f55a1feef9313d973db"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>  
+</body>
+</html>

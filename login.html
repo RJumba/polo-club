@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polo Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h1 class="logo">The Polo Club</h1>
+    <h2 class="sublogo">Member Login</h2>
+
+    <main class="container">
+        <section class="filledform">
+            <form action="#" class="formgroup">
+        <div class="info_tile">
+            <label for="email">E-mail</label>
+            <input 
+            type="email"
+            placeholder="E-mail"
+            id="email"
+            required
+            name="email">
+            <small class="errormessage"></small>
+        </div>
+
+        <div class="info_tile">
+            <label for="password">Password</label>
+            <input type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+            required>
+            <small class="errormessage"></small>
+        </div>
+        <button type="submit" class="loginbtn">Login</button>
+        </form>
+             <p class="linktext">Don't have an account?<a href="register.html">Register</a></p>
+        </section>
+
+    
+    </main>
+
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyD6eHy5xjaY-3W2ZDLEFLYxOsFCdAWLne4",
+    authDomain: "my-login-site-95d97.firebaseapp.com",
+    projectId: "my-login-site-95d97",
+    storageBucket: "my-login-site-95d97.firebasestorage.app",
+    messagingSenderId: "787242250818",
+    appId: "1:787242250818:web:fa4f55a1feef9313d973db"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+    <script src="login.js"></script>
+</body>
+</html>

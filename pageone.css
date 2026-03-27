@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #1b4081;
+    color: #222;
+    min-height: 100vh;
+}
+
+.dashboardd {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.topbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.welcometxt {
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.logoutbutton {
+    padding: 10px 16px;
+    border: none;
+    background: #ffffff;
+    color: #1b4081;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.herocard {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.herocard h2 {
+    margin-bottom: 10px;
+    color: #1b4081;
+}
+
+.gridlayout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #1b4081;
+}
+
+.statuslist p {
+    margin-bottom: 10px;
+
+}
+
+.card button {
+    margin-top: 15px;
+    padding: 10px 14px;
+    border: none;
+    background: #1b4081;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.tasklist {
+    list-style: none;
+}
+
+.tasklist li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f9f6f1;
+    border-radius: 8px;
+    border-left: 5px solid #1b4081;
+}
+
+.tasklist li.done {
+    text-decoration: line-through;
+    color: #777;
+    border-left-color: green;
+    background: #eef8ee;
+}
+
+.progressbar {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progressfill {
+    height: 100%;
+    width: 0%;
+    background: #1b4081;
+    transition: width 0.4s ease;
+}
+
+.shopitem p {
+    margin-bottom: 10px;
+    color: #1b4081;
+}
+
+.buybutton{
+    color: #1b4081;
+}
+
+.officialshop {
+    margin-top: 30px;
+}
+
+.clubshop {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.clubshop h3 {
+    font-size: 1.8rem;
+    color: #1b4081;
+    margin-bottom: 8px;
+}
+
+.shopintro {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.shopitems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.shopitem {
+    background: #e7e5e5;
+    border: 1px solid #e6d8c8;
+    border-radius: 16px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shopitem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.shopitem h4 {
+    color: #2f2f2f;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1b4081;
+    margin-bottom: 16px;
+}
+
+.buybutton {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #1b4081;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buybutton:hover {
+    background: #1b4081;
+    transform: scale(1.02);
+}
+
+.buybutton:active {
+    transform: scale(0.98);
+}
+
+.footer {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+#checkStatusBtn,
+#completeTaskBtn {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #1b4081;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#checkStatusBtn:hover,
+#completeTaskBtn:hover{
+    background: #1b4081;
+    transform: scale(1.02);
+}
+
+#checkStatusBtn:active,
+#completeTaskBtn:active,
+#logoutBtn:active {
+    transform: scale(0.98);
+}
+
+#taskList li.done {
+    text-decoration: line-through;
+    color: gray;
+    font-weight: bold;
+}
+
+#logoutBtn:hover{
+    background: #ffffff;
+    transform: scale(1.02);
+}

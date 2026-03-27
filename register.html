@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<script src="register.js" defer></script>
+
+<body>
+    <main class="container">
+
+        <h1 class="logo">The Polo Club</h1>
+        <h2 class="subtitle">Registration Form</h2>
+
+        <form class="fill_form">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input 
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+
+                <input 
+                    type="tel"
+                    id="phone_number"
+                    autocomplete="tel"
+                    inputmode="numeric"
+                    placeholder="e.g 0705 xxx x85"
+                    name="phone_number"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="idnumber">ID Number</label>
+
+                <input 
+                    type="text"
+                    id="idnumber"
+                    name="idnumber"
+                    placeholder="ID no."
+                    inputmode="numeric"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="emg">Emergency Number</label>
+
+                <input 
+                    type="tel"
+                    id="emg"
+                    name="emergency_number"
+                    placeholder="e.g 0705 xxx x85"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="email">E-mail</label>
+
+                <input 
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+
+                <input 
+                    type="password"
+                    id="password"
+                    minlength="8"
+                    name="password"
+                    placeholder="Password"
+                    required
+                >
+            </div>
+
+            <button type="submit">Done</button>
+
+                <p class="linktext"> Already have an account?<a href="login.html">Login</a></p>
+        </form>
+
+    </main>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyD6eHy5xjaY-3W2ZDLEFLYxOsFCdAWLne4",
+    authDomain: "my-login-site-95d97.firebaseapp.com",
+    projectId: "my-login-site-95d97",
+    storageBucket: "my-login-site-95d97.firebasestorage.app",
+    messagingSenderId: "787242250818",
+    appId: "1:787242250818:web:fa4f55a1feef9313d973db"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+</body>
+</html>
