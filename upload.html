@@ -8,9 +8,10 @@
 </head>
 <body>
     <main class="container">
-    <h1 class="logo">The Polo Club</h1>
-    <h2 class="sub-logo">Upload Your Passport Photo</h2>
-
+        <div class="introblock">
+            <h1 class="logo">The Polo Club</h1>
+            <h2 class="sub-logo">Upload Your Passport Photo</h2>
+        </div>
     <section>
         <div class="task-card">
             <div class="task-info">
@@ -20,7 +21,7 @@
             <button id="openUploadBtn" class="task-btn">Upload Passport Photo</button>
         </div>
 
-        <div id="uploadSection" class="upload-section">
+        <div id="uploadSection" class="upload-section hidden">
             <h3>Passport Photo Upload</h3>
             <p>Drag and drop your photo below or click the box to choose a file.</p>
             
@@ -32,15 +33,15 @@
                 </div>
             </label>
 
-            <div id="previewContainer" class="preview-container">
+            <div id="previewContainer" class="preview-container hidden">
                 <p><strong>Selected file:</strong> <span id="fileName"></span></p>
                 <img src="" alt="Preview" id="imagePreview">
             </div>
 
-            <button id="doneBtn" class="done-btn">Done</button>
+            <button id="doneBtn" class="done-btn hidden">Done</button>
         </div>
     </section>
     </main>
-    <script></script>
+    <script src="upload.js"></script>
 </body>
 </html>

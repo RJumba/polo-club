@@ -59,4 +59,9 @@ logoutBtn.addEventListener("click", async function() {
     }
 });
 
+const uploadTaskBtn = document.getElementById("uploadTaskBtn");
+
+uploadTaskBtn.addEventListener("click", () => {
+    window.location.href = "upload.html";
+});
 
