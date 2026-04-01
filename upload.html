@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="upload.css">
+    <title>Upload</title>
+</head>
+<body>
+    <main class="container">
+    <h1 class="logo">The Polo Club</h1>
+    <h2 class="sub-logo">Upload Your Passport Photo</h2>
+
+    <section>
+        <div class="task-card">
+            <div class="task-info">
+                <h3>Upload Passport Photo</h3>
+                <p>Add a clear passport size photo continue</p>
+            </div>
+            <button id="openUploadBtn" class="task-btn">Upload Passport Photo</button>
+        </div>
+
+        <div id="uploadSection" class="upload-section">
+            <h3>Passport Photo Upload</h3>
+            <p>Drag and drop your photo below or click the box to choose a file.</p>
+            
+            <label for="passportInput" id="dropArea" class="drop-area">
+                <input type="file" id="passportInput" accept="image/*" hidden/>
+                <div class="drop-content">
+                    <p class="drag-text">Drag photo here</p>
+                    <p class="or-text">Or click to upload</p>
+                </div>
+            </label>
+
+            <div id="previewContainer" class="preview-container">
+                <p><strong>Selected file:</strong> <span id="fileName"></span></p>
+                <img src="" alt="Preview" id="imagePreview">
+            </div>
+
+            <button id="doneBtn" class="done-btn">Done</button>
+        </div>
+    </section>
+    </main>
+    <script></script>
+</body>
+</html>

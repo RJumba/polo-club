@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #1b4081;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #1b4081;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+}
+
+.upload-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.5s ease;
+}
+
+.logo {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.sub-logo {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.intro-text {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+    line-height: 1.5;
+}
+
+.task-card {
+    background: #f9fbff;
+    border: 1px solid #dbe7ff;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.task-info h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: #111827;
+}
+
+.task-info p {
+    color: #6b7280;
+    font-size: 0.92rem;
+}
+
+.task-btn,
+.done-btn {
+    background: #1b4081;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.task-btn:hover,
+.done-btn:hover {
+    background: #1b4081;
+    transform: translateY(-1px);
+}
+
+.upload-section {
+    margin-top: 24px;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    animation: fadeIn 0.4s ease;
+}
+
+.upload-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.upload-section p {
+    color: #6b7280;
+    margin-bottom: 18px;
+    font-size: 0.94rem;
+}
+
+.drop-area {
+    border: 2px dashed #1b4081;
+    border-radius: 16px;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f8fbff;
+    cursor: pointer;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.drop-area:hover {
+    background: #eef5ff;
+    border-color: #1b4081;
+}
+
+.drop-area.dragover {
+    background: #dcecff;
+    border-color: #1b4081;
+}
+
+.drag-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0d6efd;
+    margin-bottom: 8px;
+}
+
+.or-text {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+.preview-container {
+    margin-top: 20px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.preview-container p {
+    margin-bottom: 12px;
+    color: #374151;
+}
+
+.preview-container img {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    display: block;
+}
+
+.done-btn {
+    margin-top: 18px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .upload-card {
+        padding: 24px 18px;
+    }
+
+    .task-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .task-btn {
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 1.7rem;
+    }
+
+    .sub-logo {
+        font-size: 1.2rem;
+    }
+
+    .preview-container img {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+    }
+}
