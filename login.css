@@ -78,6 +78,8 @@ input:focus {
 
 .loginbtn:hover {
     opacity: 0.95;
+    background: #1b4081;
+    transform: scale(1.02);
 }
 
 .filledform{
@@ -110,4 +112,38 @@ input:focus {
     align-items: center;
     justify-content: center;
 
+}
+
+.formgroup{
+    margin-bottom: 14px;
+}
+
+.errormessage {
+    display: block;
+    font-size: 12px;
+    margin-top: 6px;
+    min-height: 16px;
+    color: #d93025;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+input.input-error{
+    border: 1px solid #d93025;
+    background-color: #fff8f8;
+}
+
+input:focus {
+    border-color: #1b4081;
 }
