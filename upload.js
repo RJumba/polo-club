@@ -7,6 +7,9 @@ const fileName = document.getElementById("fileName");
 const imagePreview = document.getElementById("imagePreview");
 const doneBtn = document.getElementById("doneBtn");
 const backBtn = document.getElementById("backBtn");
+const removeBtn = document.getElementById("removeBtn");
+
+
 
 let selectedFile = null;
 //show upload area
@@ -102,14 +105,14 @@ dropArea.addEventListener("drop", (e) => {
 
 // Done button action
 doneBtn.addEventListener("click", async () => {
-  const user = auth.currentUser;
+    const user = auth.currentUser;
 
   if (!user) {
     alert("You must be logged in first.");
     return;
   }
 
-  if (!selectedFile && !localStorage.getItem("passportPhotoURL")) {
+  if (!selectedFile && !localStorage.getItem("passportPhotoURL") && !localStorage.getItem("passportPreview")) {
     alert("Please upload a passport photo first.");
     return;
   }
@@ -153,18 +156,24 @@ auth.onAuthStateChanged(async (user) => {
       const data = doc.data();
 
       if (data.passportPhotoURL) {
-        uploadSection.classList.remove("hidden");
+        showUploadSection();
         previewContainer.classList.remove("hidden");
         doneBtn.classList.remove("hidden");
 
         imagePreview.src = data.passportPhotoURL;
         fileName.textContent = "Previously uploaded passport photo";
 
+        removeBtn.classList.remove("hidden");
+
         openUploadBtn.textContent = "Change Passport Photo";
         openUploadBtn.style.backgroundColor = "green";
 
         localStorage.setItem("passportUploaded", "true");
         localStorage.setItem("passportPhotoURL", data.passportPhotoURL);
+        localStorage.setItem("passportPreview", data.passportPhotoURL);
+        localStorage.setItem("passportFileName", "Previously uploaded passport photo");
+
+
       }
     }
   } catch (error) {
@@ -199,6 +208,8 @@ window.addEventListener("DOMContentLoaded", () => {
             savedFileName || "Previously uploaded passport photo"
         );
 
+        removeBtn.classList.remove("hidden");
+
         openUploadBtn.textContent = uploaded
             ? "Change Passport Photo"
             : "Upload Passport Photo";
@@ -208,96 +219,53 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-//open upload section when button is clicked
-/*openUploadBtn.addEventListener("click", () => {
 
-    console.log("upload passport buttonisclicked")
-    uploadSection.classList.remove("hidden");
-    uploadSection.scrollIntoView({behavior: "smooth"});
-});
+if(removeBtn){
+removeBtn.addEventListener("click", async function(){
+    const user = auth.currentUser;
 
-//when user selects a file by clicking
-passportInput.addEventListener("change", (event)=> {
-    console.log("the user picked a file")
-    const file = event.target.files[0];
-    if(!file){ 
-        console.log("wait the user did not open a file")
-        return;}
-
-        console.log("the file name is: ", file.name)
-    showPreview(file);
-});
-
-//Function to show image preview
-function showPreview(file) {
-    if (!file.type.startsWith("image/")) {
-        console.log("file seleced is not in the right format");
-        alert ("Please upload an image file only.");
+    if (!user) {
+        alert("You must be logged in");
         return;
     }
-    fileName.textContent = file.name;
 
-    const reader = new FileReader();
+    const confirmDelete = confirm("Are you sure you want to remove your passport photo?")
 
-    reader.onload = function (e) {
-        console.log("file finished loading");
-        console.log("file result base64: ", e.target.result);
+    if (!confirmDelete){
+        return;
+    }
+    try{
+        // delete from firebase
+        const storageRef = storage.ref(`passport_photos/${user.uid}/passport.jpg`);
+        await storageRef.delete();
 
-        imagePreview.src = e.target.result;
-        console.log("image preview src set");
+        //remove from firestore
+        await db.collection("users").doc(user.uid).set({
+            passportUploaded: false,
+            passportPhotoURL: null
+        }, {merge: true});
 
-        previewContainer.classList.remove("hidden");
-        doneBtn.classList.remove("hidden");
-        console.log("the preview and done button should be visible");
+        //clear local storage
+        localStorage.removeItem("passportUploaded");
+        localStorage.removeItem("passportPreview");
+        localStorage.removeItem("passportPhotoURL");
+        localStorage.removeItem("passportFileName");
 
-        localStorage.setItem("passportPreview", e.target.result);
-    };
+        //reset UI
+        imagePreview.src = "";
+        fileName.textContent = "";
+        previewContainer.classList.add("hidden");
+        doneBtn.classList.add("hidden");
+        removeBtn.classList.add("hidden");
 
-    reader.readAsDataURL(file);
+        openUploadBtn.textContent = "Upload Passport Photo";
+        openUploadBtn.style.backgroundColor = "";
+
+        alert ("Passport photo removed successfully");
+    }
+    catch (error) {
+        console.error("Error removing photo: ", error);
+        alert("Failed to remove passport photo");
+    }
+});
 }
-
-//drag over effect
-dropArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropArea.classList.add("dragover");
-});
-
-// remove drag effect when leaving
-dropArea.addEventListener("dragleave", () => {
-    dropArea.classList.remove("dragover");
-});
-
-//handle dropped file
-dropArea.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropArea.classList.remove("dragover");
-
-    const file = e.dataTransfer.files[0];
-    if (!file) return;
-
-    showPreview(file);
-});
-
-//done button action 
-doneBtn.addEventListener("click", () => {
-    alert("Passport photo uploaded successfully.");
-
-    openUploadBtn.textContent = "Completed";
-    openUploadBtn.disabled = true;
-    openUploadBtn.style.backgroundColor = "green";
-
-    doneBtn.textContent = "Uploaded";
-    doneBtn.disabled = true;
-
-    //svae upload status in browser
-    localStorage.setItem("passportUploaded", "true");
-
-    // redirect back to page one
-    window.location.href = "pageone.html";
-});
-
-
-
-backBtn.addEventListener("click", function(){
-    window.location.href = "pageone.html";
-});*/
